@@ -1,0 +1,44 @@
+# Tag taxonomy: icon + description shown on the /tags/ page and on each
+# tag's own archive page. Keys must match the tag strings used in post
+# front matter exactly (case-sensitive).
+
+"Computer Architecture":
+  icon: fas fa-microchip
+  description: >-
+    CPU design, simulation, and performance research — prefetching, fault
+    injection, ISA emulation.
+
+"Embedded Systems":
+  icon: fas fa-satellite-dish
+  description: >-
+    Microcontrollers, sensors, and hardware-software integration projects.
+
+"Research":
+  icon: fas fa-flask
+  description: >-
+    Formal research work, from BSc internships to independent investigations.
+
+"Internship":
+  icon: fas fa-briefcase
+  description: >-
+    Write-ups from industry internships.
+
+"Open Source":
+  icon: fas fa-code-branch
+  description: >-
+    Publicly maintained tools and mods.
+
+"Mobile Development":
+  icon: fas fa-mobile-screen
+  description: >-
+    React Native / mobile app engineering.
+
+"IoT":
+  icon: fas fa-wifi
+  description: >-
+    Internet-of-Things pipelines connecting hardware to software.
+
+"Meta":
+  icon: fas fa-thumbtack
+  description: >-
+    About this site itself — updates, announcements, and plans.

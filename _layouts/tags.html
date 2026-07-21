@@ -1,0 +1,40 @@
+---
+layout: page
+# All the Tags of posts.
+# Overrides the gem's default flat tag-pill list with a card grid that
+# surfaces each tag's icon, description, and post count.
+---
+
+<div class="row row-cols-1 row-cols-md-2 g-3">
+  {% assign tags = '' | split: '' %}
+  {% for t in site.tags %}
+    {% assign tags = tags | push: t[0] %}
+  {% endfor %}
+  {% assign sorted_tags = tags | sort_natural %}
+
+  {% for t in sorted_tags %}
+    {% assign count = site.tags[t].size %}
+    {% assign meta = site.data.tags[t] %}
+    <div class="col">
+      <a href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}"
+         class="text-decoration-none text-body">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title d-flex align-items-center justify-content-between mb-1">
+              <span><i class="{{ meta.icon | default: 'fas fa-tag' }} me-2 text-muted"></i>{{ t }}</span>
+              <span class="badge bg-secondary">{{ count }}</span>
+            </h5>
+            {% if meta.description %}
+            <p class="card-text text-muted"><small>{{ meta.description }}</small></p>
+            {% endif %}
+          </div>
+        </div>
+      </a>
+    </div>
+  {% endfor %}
+</div>
+
+{% if site.tags.size == 0 %}
+> No tagged posts yet — tags will show up here once posts use them.
+{: .prompt-tip }
+{% endif %}
