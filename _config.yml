@@ -61,7 +61,7 @@ analytics:
   google:
     id: # fill in your Google Analytics ID
   goatcounter:
-    id: # TODO: fill in your GoatCounter ID after creating a free account at https://www.goatcounter.com/
+    id: imndllnuri-blog
   umami:
     id: # fill in your Umami ID
     domain: # fill in your Umami domain
