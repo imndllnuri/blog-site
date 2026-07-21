@@ -2,6 +2,8 @@
 title: RV32I Emulator
 summary: A Linux-native RISC-V (RV32I + RV32M) emulator with a Qt GUI, built to learn CPU emulation and ISA design, inspired by the Windows-only Easy68k debugger.
 tech: [C++, Python, PyQt5, pybind11, CMake]
+type: Personal Project
+highlight: Full RV32I + RV32M ISA implemented with a GUI debugger
 repo: https://github.com/imndllnuri/rv32i-emulator
 demo: https://github.com/imndllnuri/rv32i-emulator/releases
 order: 1

@@ -2,6 +2,8 @@
 title: "TapIn — Student Attendance App"
 summary: A desktop + server app for instructors to manage classes and record student attendance via RFID, built as a course project at Abdullah Gül University.
 tech: [Python, PyQt5, Flask, SQLite, pandas]
+type: Course Project
+highlight: RFID-based attendance capture on a PyQt5 + Flask stack
 repo: https://github.com/imndllnuri/students-attendance-app
 demo:
 order: 5

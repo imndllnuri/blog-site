@@ -2,6 +2,8 @@
 title: Easy Sort
 summary: A lightweight Minecraft mod (Fabric + NeoForge) adding one-hotkey inventory/chest sorting, quick-stack, and restock, without the bloat of full inventory-management suites.
 tech: [Java, Gradle, Fabric API, NeoForge]
+type: Open Source
+highlight: Published on Modrinth & CurseForge, v1.4.1 and actively maintained
 repo: https://github.com/imndllnuri/easy-sort
 demo: https://modrinth.com/mod/easy-sort
 order: 7

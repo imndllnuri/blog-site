@@ -2,6 +2,8 @@
 title: Corola Data Prefetching
 summary: A BSc internship project on hardware data prefetching, simulating a custom high-coverage variant of the ip_stride prefetcher against the default using ChampSim traces.
 tech: [C++, Python, Bash, ChampSim, Pin/SDE]
+type: Internship
+highlight: Custom prefetcher variant benchmarked against ChampSim's default
 repo: https://github.com/imndllnuri/corola-data-prefetching
 demo:
 order: 3

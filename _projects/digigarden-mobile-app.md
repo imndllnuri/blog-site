@@ -2,6 +2,8 @@
 title: DigiGarden Mobile App
 summary: A React Native/Expo mobile app for Turkish farmers to manage fields, track soil health, and get data-driven fertilization recommendations from connected hardware sensors.
 tech: [React Native, Expo, Firebase, Cloud Run]
+type: Internship
+highlight: Photo-based ML soil analysis integrated into a production app
 repo:
 demo:
 order: 6

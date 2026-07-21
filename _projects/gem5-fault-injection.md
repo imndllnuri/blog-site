@@ -2,6 +2,8 @@
 title: gem5 Fault Injection
 summary: A fork of the gem5 architecture simulator adding a deterministic single-bit register fault injector for RISC-V, used to study CPU soft-error resiliency.
 tech: [C++, Python, SCons, gem5]
+type: Research
+highlight: Deterministic single-bit fault injection with automated campaign sweeps
 repo: https://github.com/imndllnuri/riscv-gem5-fault-injector
 demo:
 order: 2

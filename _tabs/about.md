@@ -6,13 +6,12 @@ order: 5
 
 ## About Me
 
-Hi, I'm **Nuri İmrendi**, working in Computer Engineering. I work across
-computer architecture research and hands-on systems and software projects —
-from simulating CPU behavior to building embedded devices and full-stack
-apps.
+Hi, I'm **Nuri İmrendi**. My work in Computer Engineering spans computer
+architecture research and hands-on systems and software projects — from
+simulating CPU behavior to building embedded devices and full-stack apps.
 
-<!-- TODO: tweak the wording above if "working in" doesn't match your current
-     status (student / graduate / job title) -->
+<!-- TODO: tweak the wording above if it doesn't match your current status
+     (student / graduate / job title) -->
 
 ## What I Do
 
