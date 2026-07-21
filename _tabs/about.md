@@ -25,5 +25,5 @@ You can find my CV [here]({{ '/assets/cv.pdf' | relative_url }}).
 ## Contact
 
 - GitHub: [@imndllnuri](https://github.com/imndllnuri)
-- Email: [nurriimrendi@gmail.com](mailto:nurriimrendi@gmail.com)
+- Email: [ni.imrendi@gmail.com](mailto:ni.imrendi@gmail.com)
 <!-- TODO: add LinkedIn, Twitter/X, Google Scholar, etc. as relevant -->
