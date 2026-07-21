@@ -4,26 +4,37 @@ icon: fas fa-info-circle
 order: 5
 ---
 
-<!-- TODO: replace this placeholder with your real bio, background, and CV -->
-
 ## About Me
 
-Hi, I'm **TODO: Your Name** — TODO: a one- or two-sentence description of what you
-work on / research.
+Hi, I'm **Nuri İmrendi**, working in Computer Engineering. I work across
+computer architecture research and hands-on systems and software projects —
+from simulating CPU behavior to building embedded devices and full-stack
+apps.
+
+<!-- TODO: tweak the wording above if "working in" doesn't match your current
+     status (student / graduate / job title) -->
 
 ## What I Do
 
-- TODO: area of focus 1
-- TODO: area of focus 2
-- TODO: area of focus 3
+- **Computer architecture research** — hardware data prefetching, fault
+  injection in CPU simulators (gem5), and a RISC-V emulator built from
+  scratch to explore ISA design
+- **Embedded systems & IoT** — microcontroller-based automation (STM32) and
+  RFID-based hardware/software pipelines
+- **Full-stack & mobile development** — internship work on production mobile
+  apps and backend services
+- **Developer tools** — small, focused open-source tools published for
+  public use
+
+See the [Projects](/blog-site/projects/) page for details on each.
 
 ## CV
 
-You can find my CV [here]({{ '/assets/cv.pdf' | relative_url }}).
-<!-- TODO: add your CV as assets/cv.pdf, or remove this section -->
+- [CV (English)]({{ '/assets/nuri-imrendi-cv-eng.pdf' | relative_url }})
+- [CV (Türkçe)]({{ '/assets/nuri-imrendi-cv-tr.pdf' | relative_url }})
 
 ## Contact
 
 - GitHub: [@imndllnuri](https://github.com/imndllnuri)
+- LinkedIn: [nuri-imrendi](https://www.linkedin.com/in/nuri-imrendi)
 - Email: [ni.imrendi@gmail.com](mailto:ni.imrendi@gmail.com)
-<!-- TODO: add LinkedIn, Twitter/X, Google Scholar, etc. as relevant -->
