@@ -1,0 +1,47 @@
+---
+layout: page
+# All the Categories of posts + projects.
+# A flat card grid (mirrors _layouts/tags.html) rather than the gem's
+# hierarchical default, since this site only uses single-level categories.
+# site.categories only aggregates the `posts` collection natively, so
+# project categories are merged in manually here.
+---
+
+<div class="row row-cols-1 row-cols-md-2 g-3">
+  {% assign categories = '' | split: '' %}
+  {% for c in site.categories %}
+    {% assign categories = categories | push: c[0] %}
+  {% endfor %}
+  {% for project in site.projects %}
+    {% if project.category %}
+      {% unless categories contains project.category %}
+        {% assign categories = categories | push: project.category %}
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+  {% assign sorted_categories = categories | uniq | sort_natural %}
+
+  {% for c in sorted_categories %}
+    {% assign post_count = site.categories[c].size | default: 0 %}
+    {% assign matching_projects = site.projects | where_exp: "p", "p.category == c" %}
+    {% assign count = post_count | plus: matching_projects.size %}
+    <div class="col">
+      <a href="{{ c | slugify | url_encode | prepend: '/categories/' | append: '/' | relative_url }}"
+         class="text-decoration-none text-body">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title d-flex align-items-center justify-content-between mb-0">
+              <span><i class="far fa-folder-open me-2 text-muted"></i>{{ c }}</span>
+              <span class="badge bg-secondary">{{ count }}</span>
+            </h5>
+          </div>
+        </div>
+      </a>
+    </div>
+  {% endfor %}
+</div>
+
+{% if sorted_categories.size == 0 %}
+> No categorized posts or projects yet — categories will show up here once they're used.
+{: .prompt-tip }
+{% endif %}

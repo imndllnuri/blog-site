@@ -25,6 +25,14 @@ order: 3
           {% for t in project.tech %}<span class="badge bg-secondary me-1">{{ t }}</span>{% endfor %}
         </p>
         {% endif %}
+        {% if project.tags %}
+        <p class="card-text">
+          {% for t in project.tags %}
+          <a href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}"
+             class="badge bg-light text-dark border me-1 text-decoration-none">#{{ t }}</a>
+          {% endfor %}
+        </p>
+        {% endif %}
         <div class="card-text mt-auto">
           {% if project.repo %}<a href="{{ project.repo }}" target="_blank" rel="noopener"><i class="fab fa-github me-1"></i>Code</a>{% endif %}
           {% if project.repo and project.demo %} &middot; {% endif %}

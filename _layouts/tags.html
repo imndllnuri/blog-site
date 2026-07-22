@@ -1,8 +1,10 @@
 ---
 layout: page
-# All the Tags of posts.
+# All the Tags of posts + projects.
 # Overrides the gem's default flat tag-pill list with a card grid that
-# surfaces each tag's icon, description, and post count.
+# surfaces each tag's icon, description, and combined post+project count.
+# site.tags only aggregates the `posts` collection (Jekyll core behavior),
+# so project tags are merged in manually here.
 ---
 
 <div class="row row-cols-1 row-cols-md-2 g-3">
@@ -10,10 +12,19 @@ layout: page
   {% for t in site.tags %}
     {% assign tags = tags | push: t[0] %}
   {% endfor %}
-  {% assign sorted_tags = tags | sort_natural %}
+  {% for project in site.projects %}
+    {% for t in project.tags %}
+      {% unless tags contains t %}
+        {% assign tags = tags | push: t %}
+      {% endunless %}
+    {% endfor %}
+  {% endfor %}
+  {% assign sorted_tags = tags | uniq | sort_natural %}
 
   {% for t in sorted_tags %}
-    {% assign count = site.tags[t].size %}
+    {% assign post_count = site.tags[t].size | default: 0 %}
+    {% assign matching_projects = site.projects | where_exp: "p", "p.tags contains t" %}
+    {% assign count = post_count | plus: matching_projects.size %}
     {% assign meta = site.data.tags[t] %}
     <div class="col">
       <a href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}"
@@ -34,7 +45,7 @@ layout: page
   {% endfor %}
 </div>
 
-{% if site.tags.size == 0 %}
-> No tagged posts yet — tags will show up here once posts use them.
+{% if sorted_tags.size == 0 %}
+> No tagged posts or projects yet — tags will show up here once they're used.
 {: .prompt-tip }
 {% endif %}

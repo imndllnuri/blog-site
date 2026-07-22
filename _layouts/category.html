@@ -1,25 +1,21 @@
 ---
 layout: page
-# The layout for a single Tag page.
-# Overrides the gem's default to show the tag's icon and description
-# from _data/tags.yml, and to list projects tagged with it alongside
-# posts (site.tags/page.posts only cover the `posts` collection natively).
+# The Category layout.
+# Overrides the gem's default to also list projects in this category
+# alongside posts (site.categories/page.posts only cover the `posts`
+# collection natively).
 ---
 
 {% include lang.html %}
-{% assign meta = site.data.tags[page.title] %}
-{% assign related_projects = site.projects | where_exp: "p", "p.tags contains page.title" %}
+{% assign related_projects = site.projects | where_exp: "p", "p.category == page.title" %}
 {% assign total_count = page.posts | size | plus: related_projects.size %}
 
-<div id="page-tag">
+<div id="page-category">
   <h1 class="ps-lg-2">
-    <i class="{{ meta.icon | default: 'fa fa-tag' }} fa-fw text-muted"></i>
+    <i class="far fa-folder-open fa-fw text-muted"></i>
     {{ page.title }}
     <span class="lead text-muted ps-2">{{ total_count }}</span>
   </h1>
-  {% if meta.description %}
-  <p class="ps-lg-2 text-muted">{{ meta.description }}</p>
-  {% endif %}
 
   {% if related_projects.size > 0 %}
   <h2 class="ps-lg-2 h5 text-muted mt-4">Projects</h2>
@@ -28,7 +24,6 @@ layout: page
       <li class="d-flex justify-content-between px-md-3">
         <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
         <span class="dash flex-grow-1"></span>
-        {% if project.type %}<span class="text-muted small text-nowrap">{{ project.type }}</span>{% endif %}
       </li>
     {% endfor %}
   </ul>
