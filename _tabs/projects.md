@@ -4,7 +4,7 @@ icon: fas fa-diagram-project
 order: 3
 ---
 
-<div class="row row-cols-1 row-cols-md-2 g-3">
+<div class="row row-cols-1 row-cols-md-2 gx-4 gy-3">
 {% assign projects = site.projects | sort: 'order' %}
 {% for project in projects %}
   <div class="col">
