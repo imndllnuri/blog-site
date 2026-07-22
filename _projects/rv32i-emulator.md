@@ -19,9 +19,8 @@ editing and live register/memory/stack/disassembly views with breakpoint
 support. It implements the full RV32I base integer ISA plus the RV32M
 multiply/divide extension, and ships as a self-contained Linux AppImage.
 
-> A GUI screenshot is on the way — check back soon, or see the
-> [releases page]({{ page.demo }}) for the packaged AppImage in the meantime.
-{: .prompt-tip }
+![RV32I emulator GUI with a Fibonacci program loaded, before running](/assets/img/projects/rv32i-emulator/gui-loaded.png)
+_The editor with a hand-written RV32I program loaded (iteratively computing `fib(10)`), and the Registers panel showing the CPU's reset state — `sp` initialized to the top of memory, everything else zeroed._
 
 ## Motivation
 
@@ -54,6 +53,21 @@ the repo for the full file-by-file breakdown):
   gcd, bubble sort, and others) used both as smoke tests and as a way to
   exercise every instruction category the core implements.
 
+The Disassembly and Memory views make the fetch/decode step and the
+assembled binary's actual byte layout directly inspectable, not just the
+source assembly:
+
+<div class="row row-cols-1 row-cols-md-2 g-2 mb-3">
+  <div class="col">
+    <img src="/assets/img/projects/rv32i-emulator/gui-disassembly.png" alt="Disassembly view decoding each instruction back from machine code" class="img-fluid rounded">
+    <p class="text-muted text-center"><small>Disassembly: each address, raw instruction bytes, and the decoded mnemonic</small></p>
+  </div>
+  <div class="col">
+    <img src="/assets/img/projects/rv32i-emulator/gui-memory.png" alt="Memory hex dump view" class="img-fluid rounded">
+    <p class="text-muted text-center"><small>Memory: a live hex/ASCII dump, following the program counter</small></p>
+  </div>
+</div>
+
 ## Key design decisions
 
 **Why expose the core to Python instead of writing the whole thing in C++
@@ -78,6 +92,16 @@ who wants to try the emulator to first set up a matching Python + Qt
 environment is enough friction that most people won't bother. An AppImage
 (built via PyInstaller) bundles the interpreter and Qt libraries into one
 executable file — download, `chmod +x`, run.
+
+## Results
+
+Running the loaded program to completion is the real proof the core
+correctly implements the ISA rather than just parsing it — arithmetic,
+branches, and register writes all have to behave exactly as RISC-V specifies
+for the final register state to come out right:
+
+![Registers panel after execution halts, showing t4 holding the computed Fibonacci result](/assets/img/projects/rv32i-emulator/gui-result.png)
+_After the CPU halts, `t3` (the loop counter) holds `10` and `t4` holds `0x37` — 55 in decimal — exactly matching `fib(10) = 55`, the value the assembly's own comment predicts._
 
 ## Challenges & lessons learned
 
